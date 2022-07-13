@@ -36,7 +36,7 @@
 						<div class="card-body">
 							<h4 class="card-title">POST</h4>
 
-							
+
 							<form action="https://jsonplaceholder.typicode.com/posts" method="POST">
 								<input type="hidden" name="userId" value="1">
 

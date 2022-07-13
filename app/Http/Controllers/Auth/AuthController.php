@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Http;
 
 class AuthController extends Controller
 {
@@ -37,14 +38,13 @@ class AuthController extends Controller
         }
     }
 
-    public function extena() {
-        $client = new \GuzzleHttp\Client();
-        $response = $client->request('GET', "posts");
-        $data = json_decode($response->getBody());
-
-        dd($data);
-
-        return $data;
-    }
+    // public function extena() {
+    //     try {
+    //         $resp = Http::get(ENV('API_ENDPOINT').'/posts');
+    //         return json_decode($resp);
+    //     } catch (\Throwable $th) {
+    //         return $th;
+    //     }
+    // }
 
 }

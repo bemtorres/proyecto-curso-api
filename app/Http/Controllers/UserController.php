@@ -14,7 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::all();
+        // return User::all();
+        $users = User::all();
+        return view('user.index', compact('users'));
     }
 
     /**
@@ -99,7 +101,6 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $request;
         try {
             $user = User::find($id);
             $user->name = $request->nombre;
@@ -107,10 +108,9 @@ class UserController extends Controller
             $user->password = $request->password;
             $user->update();
 
-            return $user;
-        } catch (\Throwable $th) {
 
-            return $th;
+            return back()->with('success', 'se ha actuliazdo');
+        } catch (\Throwable $th) {
             return response()->json(['message' => 'No se pudo crear'], 401);
         }
     }
@@ -125,5 +125,17 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
+
+        return back()->with('success', 'se ha eliminado');
     }
+
+    public function posts($id)
+    {
+        $user = User::With('posts')->find($id);
+        // return $user->posts;
+        return $user;
+
+        // return view('users.posts', compact('user'));
+    }
+
 }

@@ -15,5 +15,7 @@ class User extends Authenticatable
 
     protected $table = 'users';
 
-
+    public function posts(){
+        return $this->hasMany(Post::class, 'user_id');
+    }
 }

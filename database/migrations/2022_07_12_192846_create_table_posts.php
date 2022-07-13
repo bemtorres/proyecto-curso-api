@@ -22,15 +22,15 @@ class CreateTablePosts extends Migration
             $table->timestamps();
         });
 
-        $faker = Faker\Factory::create();
+        // $faker = Faker\Factory::create();
 
-        for ($i=0; $i < 150; $i++) {
-            $p = new Post();
-            $p->user_id = $faker->numberBetween(1,50);
-            $p->title = $faker->title();
-            $p->body = $i . $faker->email();
-            $p->save();
-        }
+        // for ($i=0; $i < 150; $i++) {
+        //     $p = new Post();
+        //     $p->user_id = $faker->numberBetween(1,50);
+        //     $p->title = $faker->title();
+        //     $p->body = $i . $faker->email();
+        //     $p->save();
+        // }
     }
 
     /**

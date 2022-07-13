@@ -24,15 +24,13 @@ class CreateTableUsers extends Migration
 
         $faker = Faker\Factory::create();
 
-        for ($i=0; $i < 50; $i++) {
+        for ($i=0; $i < 10000; $i++) {
             $u = new User();
             $u->name = $faker->name();
             $u->email = $i . $faker->email();
             $u->password = "12345";
             $u->save();
         }
-
-
     }
 
     /**
